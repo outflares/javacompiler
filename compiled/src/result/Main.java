@@ -1,34 +1,31 @@
-// program Test1_math compiled on Tue May 12 18:42:41 MSK 2020
+// program Test_math compiled on Sun May 24 11:39:40 MSK 2020
 package result;
 public class Main {
-private static int fExample(int data){
-data=data+1;
+private static int fu(int data){
+data=data*4;
+return data;
+}
+private static float flo(Float data){
+data=data+5;
 return data;
 }
 public static void main(String[]args) throws Exception{
-int kek = 9;
-float bob = 3.22f;
-final int mops = 2727;
-int a = 0;
-int b = 5;
-int dod = (int)bob;
-a=((kek*dod)/mops+123^2-mops %2)-1;
+int i = 5;
+float f = 19.01f;
+final int hundred = 100;
+int b = 1;
+int c = (int)f;
+int a = ((i*hundred+123^2-hundred %2)-1*b);
 System.out.println(a);
-a=fExample(a);
+a=fu(a);
 System.out.println(a);
-float jija = bob+2.28f;
-if (jija>=bob){
-System.out.println(jija);
+float l = f-2.28f;
+if (l<=f){
+System.out.println(l);
 }else{
-System.out.println(bob);
+System.out.println(f);
 }
-while (b>0){
-b=b-1;
-System.out.println(b);
-}
-for (b=0; b<5; b++){
-a=b;
-System.out.println(a);
-}
+f=flo(l);
+System.out.println(f);
 }
 }

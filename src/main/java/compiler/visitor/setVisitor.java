@@ -1,12 +1,11 @@
 package compiler.visitor;
 
-import compiler.grammar.mathGrammarBaseVisitor;
-import compiler.grammar.mathGrammarParser;
+import compiler.grammar.mylangBaseVisitor;
+import compiler.grammar.mylangParser;
 import compiler.visitor.exceptions.NotDefinedVariable;
 import compiler.visitor.exceptions.NotValidCast;
 import org.antlr.v4.runtime.ParserRuleContext;
 
-import javax.print.DocFlavor;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.Map;
 import static compiler.config.Config.COMPILE_PACKAGE_NAME;
 
 
-public class setVisitor extends mathGrammarBaseVisitor<String> {
+public class setVisitor extends mylangBaseVisitor<String> {
     private String className;
     private Map<String, Type> globalVariable = new HashMap<>();
     private Map<String, Type> localVariable = new HashMap<>();
@@ -35,7 +34,7 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
     }
 
     private boolean isGlobal(ParserRuleContext ctx) {
-        return ctx.getParent().getParent() instanceof mathGrammarParser.ParseContext;
+        return ctx.getParent().getParent() instanceof mylangParser.ParseContext;
     }
 
     private void addVariableToList(ParserRuleContext ctx, String name, Type type) {
@@ -126,17 +125,17 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
     }
 
     @Override
-    public String visitParse(mathGrammarParser.ParseContext ctx) {
+    public String visitParse(mylangParser.ParseContext ctx) {
         String buffer = "// program " + className + " compiled on " + new Date().toString() + "\n";
         buffer += "package " + COMPILE_PACKAGE_NAME + ";\n";
         buffer += "public class " + "Main" + " {\n";
-        List<mathGrammarParser.CreateContext> createContextList = ctx.create();
-        for (mathGrammarParser.CreateContext aCreateContextList : createContextList) {
+        List<mylangParser.CreateContext> createContextList = ctx.create();
+        for (mylangParser.CreateContext aCreateContextList : createContextList) {
             buffer += "static " + this.visit(aCreateContextList);
             buffer += "\n";
         }
-        List<mathGrammarParser.FunctionContext> functionContextList = ctx.function();
-        for (mathGrammarParser.FunctionContext aFunctionContextList : functionContextList) {
+        List<mylangParser.FunctionContext> functionContextList = ctx.function();
+        for (mylangParser.FunctionContext aFunctionContextList : functionContextList) {
             buffer += this.visit(aFunctionContextList);
             buffer += "\n";
         }
@@ -146,7 +145,7 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
     }
 
     @Override
-    public String visitMain(mathGrammarParser.MainContext ctx) {
+    public String visitMain(mylangParser.MainContext ctx) {
         clearLocalVariableList();
         return "public static void main(String[]args) throws Exception{\n" +
                 this.visit(ctx.start()) +
@@ -154,7 +153,7 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
     }
 
     @Override
-    public String visitStart(mathGrammarParser.StartContext ctx) {
+    public String visitStart(mylangParser.StartContext ctx) {
         String buffer = "";
         for (int children = 0; children < ctx.getChildCount(); children++) {
             buffer += "";
@@ -166,7 +165,7 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
 
 
     @Override
-    public String visitCreate_int(mathGrammarParser.Create_intContext ctx) {
+    public String visitCreate_int(mylangParser.Create_intContext ctx) {
         String name = ctx.ID().getText();
         String newVariable = "";
         if (notExistLocaleVariable(name)) {
@@ -178,13 +177,13 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
     }
 
     @Override
-    public String visitCreate_const_int(mathGrammarParser.Create_const_intContext ctx) {
+    public String visitCreate_const_int(mylangParser.Create_const_intContext ctx) {
         String newInt = visit(ctx.create_int());
         return "final" + " " + newInt;
     }
 
     @Override
-    public String visitCreate_float(mathGrammarParser.Create_floatContext ctx) {
+    public String visitCreate_float(mylangParser.Create_floatContext ctx) {
         String name = ctx.ID().getText();
         String newVariable = "";
         if (notExistLocaleVariable(name)) {
@@ -196,13 +195,13 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
     }
 
     @Override
-    public String visitCreate_const_float(mathGrammarParser.Create_const_floatContext ctx) {
+    public String visitCreate_const_float(mylangParser.Create_const_floatContext ctx) {
         String newfloat = visit(ctx.create_float());
         return "final" + " " + newfloat;
     }
 
     @Override
-    public String visitForCond(mathGrammarParser.ForCondContext ctx) {
+    public String visitForCond(mylangParser.ForCondContext ctx) {
         String id1 = ctx.ID(0).getText();
         //    addToLocalVariableList(left, Type.ELEMENT);
         String id2 = ctx.ID(1).getText();
@@ -211,10 +210,10 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
         //     checkVariable(right);
         //    checkCast(right, Type.SET);
         switch (ctx.oper.getType()) {
-            case mathGrammarParser.INCR:
+            case mylangParser.INCR:
                 return id1 + "=" + expression + "; " + condition + "; " + id2 + "++";
 
-            case mathGrammarParser.DECR:
+            case mylangParser.DECR:
                 return id1 + "=" + expression + "; " + condition + "; " + id2 + "--";
             default:
                 throw new RuntimeException("Unknown operator: " + ctx.oper.getText());
@@ -224,7 +223,7 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
 
 
     @Override
-    public String visitPretty_print(mathGrammarParser.Pretty_printContext ctx) {
+    public String visitPretty_print(mylangParser.Pretty_printContext ctx) {
         String variableName = ctx.ID().getText();
         checkVariable(variableName);
 
@@ -233,13 +232,13 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
 
 
     @Override
-    public String visitNameObjectInt(mathGrammarParser.NameObjectIntContext ctx) {
+    public String visitNameObjectInt(mylangParser.NameObjectIntContext ctx) {
 
         return ctx.INT().getText();
 
     }
 
-    public String visitNameObjectFloat(mathGrammarParser.NameObjectFloatContext ctx) {
+    public String visitNameObjectFloat(mylangParser.NameObjectFloatContext ctx) {
 
         return ctx.FLOAT().getText();
 
@@ -247,31 +246,31 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
 
 
     @Override
-    public String visitPrint(mathGrammarParser.PrintContext ctx) {
+    public String visitPrint(mylangParser.PrintContext ctx) {
         return "System.out.println(" + this.visit(ctx.print_expr()) + ");";
     }
 
 
     @Override
-    public String visitPrintId(mathGrammarParser.PrintIdContext ctx) {
+    public String visitPrintId(mylangParser.PrintIdContext ctx) {
         String name = ctx.ID().toString();
         checkVariable(name);
         return name;
     }
 
     @Override
-    public String visitPrintInt(mathGrammarParser.PrintIntContext ctx) {
+    public String visitPrintInt(mylangParser.PrintIntContext ctx) {
         return ctx.INT().getText();
     }
 
     @Override
-    public String visitPrintFloat(mathGrammarParser.PrintFloatContext ctx) {
+    public String visitPrintFloat(mylangParser.PrintFloatContext ctx) {
         return ctx.FLOAT().getText();
     }
 
 
     @Override
-    public String visitStat_block(mathGrammarParser.Stat_blockContext ctx) {
+    public String visitStat_block(mylangParser.Stat_blockContext ctx) {
         Map<String, Type> beforeStatBlock = new HashMap(localVariable);
         String block = "{\n" + this.visit(ctx.start()) + "}";
         localVariable = beforeStatBlock;
@@ -280,9 +279,9 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
 
 
     @Override
-    public String visitIf_stat(mathGrammarParser.If_statContext ctx) {
+    public String visitIf_stat(mylangParser.If_statContext ctx) {
         String buffer = "";
-        List<mathGrammarParser.Condition_blockContext> conditions = ctx.condition_block();
+        List<mylangParser.Condition_blockContext> conditions = ctx.condition_block();
         for (int index = 0; index < conditions.size(); index++) {
             String conditionString = this.visit(conditions.get(index).condition());
             String negation = "";
@@ -302,28 +301,28 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
     }
 
     @Override
-    public String visitCondition_block(mathGrammarParser.Condition_blockContext ctx) {
+    public String visitCondition_block(mylangParser.Condition_blockContext ctx) {
         return visitChildren(ctx);
     }
 
     @Override
-    public String visitEqualityExpr(mathGrammarParser.EqualityExprContext ctx) {
+    public String visitEqualityExpr(mylangParser.EqualityExprContext ctx) {
         String left = ctx.ID().getText();
         //checkVariable(left);
         String right = visit(ctx.expr());
         //  checkVariable(right);
         switch (ctx.op.getType()) {
-            case mathGrammarParser.EQ:
+            case mylangParser.EQ:
                 return left + "==" + right;
-            case mathGrammarParser.NEQ:
+            case mylangParser.NEQ:
                 return left + "!=" + right;
-            case mathGrammarParser.OANGLEBR:
+            case mylangParser.OANGLEBR:
                 return left + "<" + right;
-            case mathGrammarParser.CANGLEBR:
+            case mylangParser.CANGLEBR:
                 return left + ">" + right;
-            case mathGrammarParser.EQOANGLEBR:
+            case mylangParser.EQOANGLEBR:
                 return left + "<=" + right;
-            case mathGrammarParser.EQCANGLEBR:
+            case mylangParser.EQCANGLEBR:
                 return left + ">=" + right;
             default:
                 throw new RuntimeException("Unknown operator: " + ctx.op.getText());
@@ -332,7 +331,7 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
 
 
     @Override
-    public String visitCheckType(mathGrammarParser.CheckTypeContext ctx) {
+    public String visitCheckType(mylangParser.CheckTypeContext ctx) {
         String left = ctx.ID().getText();
         checkVariable(left);
         String right = ctx.type().getText();
@@ -340,23 +339,9 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
         return left + ".getClass().getSimpleName().equals(\"" + right + "\")";
     }
 
-    @Override
-    public String visitWhile_stat(mathGrammarParser.While_statContext ctx) {
-        return "while (" + this.visit(ctx.condition_block().condition()) + ")" +
-                this.visit(ctx.condition_block().stat_block());
-    }
-
 
     @Override
-    public String visitFor_stat(mathGrammarParser.For_statContext ctx) {
-        String cond = visit(ctx.condition_for());
-        String forBlock = "for (" + cond + ")" + this.visit(ctx.stat_block());
-        return forBlock;
-    }
-
-
-    @Override
-    public String visitVoidFunction(mathGrammarParser.VoidFunctionContext ctx) {
+    public String visitVoidFunction(mylangParser.VoidFunctionContext ctx) {
         clearLocalVariableList();
         String name = ctx.ID().getText();
         addToFunctionList(name, Type.VOID);
@@ -364,14 +349,13 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
     }
 
     @Override
-    public String visitReturnFunction(mathGrammarParser.ReturnFunctionContext ctx) {
+    public String visitReturnFunction(mylangParser.ReturnFunctionContext ctx) {
         clearLocalVariableList();
         String name = ctx.ID().getText();
         String returnType = ctx.type().getText();
         if (returnType.equals("integer")) {
             returnType = "int";
         }
- //           returnType = getStringWithFirstCapital(returnType);
             addToFunctionList(name, Type.getTypeByString(returnType));
             return "private static " + returnType + " " + name +
                     this.visit(ctx.param()) +
@@ -380,28 +364,28 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
 
 
     @Override
-    public String visitStat_block_with_return(mathGrammarParser.Stat_block_with_returnContext ctx) {
+    public String visitStat_block_with_return(mylangParser.Stat_block_with_returnContext ctx) {
         return "{\n" + this.visit(ctx.start()) + this.visit(ctx.return_id()) + "}";
     }
 
     @Override
-    public String visitReturn_id(mathGrammarParser.Return_idContext ctx) {
+    public String visitReturn_id(mylangParser.Return_idContext ctx) {
         String id = ctx.ID().getText();
         checkVariable(id);
-        mathGrammarParser.ReturnFunctionContext context = (mathGrammarParser.ReturnFunctionContext) ctx.getParent().getParent();
+        mylangParser.ReturnFunctionContext context = (mylangParser.ReturnFunctionContext) ctx.getParent().getParent();
         checkCast(id, Type.getTypeByString(getStringWithFirstCapital(context.type().getText())));
         return "return " + id + ";\n";
     }
 
     @Override
-    public String visitFunction_call(mathGrammarParser.Function_callContext ctx) {
+    public String visitFunction_call(mylangParser.Function_callContext ctx) {
         String name = ctx.ID().getText();
         checkFunction(name);
         return name + this.visit(ctx.param_call());
     }
 
     @Override
-    public String visitCall(mathGrammarParser.CallContext ctx) {
+    public String visitCall(mylangParser.CallContext ctx) {
         String name = ctx.ID().getText();
         String arg = visit(ctx.expr());
         checkFunction(name);
@@ -409,7 +393,7 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
     }
 
     @Override
-    public String visitParam_call(mathGrammarParser.Param_callContext ctx) {
+    public String visitParam_call(mylangParser.Param_callContext ctx) {
         String args = "";
         if (ctx.arg_call() != null) {
             args = this.visit(ctx.arg_call());
@@ -418,21 +402,21 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
     }
 
     @Override
-    public String visitParamCallArgs(mathGrammarParser.ParamCallArgsContext ctx) {
+    public String visitParamCallArgs(mylangParser.ParamCallArgsContext ctx) {
         String name = ctx.ID().getText();
         checkVariable(name);
         return name + ", " + this.visit(ctx.arg_call());
     }
 
     @Override
-    public String visitParamCallArg(mathGrammarParser.ParamCallArgContext ctx) {
+    public String visitParamCallArg(mylangParser.ParamCallArgContext ctx) {
         String name = ctx.ID().getText();
         checkVariable(name);
         return name;
     }
 
     @Override
-    public String visitParam(mathGrammarParser.ParamContext ctx) {
+    public String visitParam(mylangParser.ParamContext ctx) {
         String args = "";
         if (ctx.arg() != null) {
             args = this.visit(ctx.arg());
@@ -441,7 +425,7 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
     }
 
     @Override
-    public String visitParamArgs(mathGrammarParser.ParamArgsContext ctx) {
+    public String visitParamArgs(mylangParser.ParamArgsContext ctx) {
         String type = ctx.type().getText();
         type = getStringWithFirstCapital(type);
         String name = ctx.ID().getText();
@@ -450,7 +434,7 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
     }
 
     @Override
-    public String visitParamArg(mathGrammarParser.ParamArgContext ctx) {
+    public String visitParamArg(mylangParser.ParamArgContext ctx) {
         String type = ctx.type().getText();
         type = getStringWithFirstCapital(type);
         String name = ctx.ID().getText();
@@ -461,29 +445,29 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
     }
 
     @Override
-    public String visitAddSub(mathGrammarParser.AddSubContext ctx) {
+    public String visitAddSub(mylangParser.AddSubContext ctx) {
         String left = visit(ctx.expr(0));  // get value of left subexpression
         String right = visit(ctx.expr(1)); // get value of right subexpression
-        if (ctx.op.getType() == mathGrammarParser.ADD) return left + "+" + right;
+        if (ctx.op.getType() == mylangParser.ADD) return left + "+" + right;
         return left + "-" + right; // must be SUB
     }
 
     @Override
-    public String visitUnary(mathGrammarParser.UnaryContext ctx) {
+    public String visitUnary(mylangParser.UnaryContext ctx) {
         String buff = visit(ctx.expr());
-        if (ctx.op.getType() == mathGrammarParser.ADD) return "+" + buff;
+        if (ctx.op.getType() == mylangParser.ADD) return "+" + buff;
         return "-" + buff;
     }
 
     @Override
-    public String visitPowExpr(mathGrammarParser.PowExprContext ctx) {
+    public String visitPowExpr(mylangParser.PowExprContext ctx) {
         String left = visit(ctx.expr(0));  // get value of left subexpression
         String right = visit(ctx.expr(1)); // get value of right subexpression
         return left + "^" + right;
     }
 
     @Override
-    public String visitAssignExpr(mathGrammarParser.AssignExprContext ctx) {
+    public String visitAssignExpr(mylangParser.AssignExprContext ctx) {
         String left = ctx.ID().getText();
         ;  // get value of left subexpression
         String right = visit(ctx.expr()); // get value of right subexpression
@@ -491,45 +475,45 @@ public class setVisitor extends mathGrammarBaseVisitor<String> {
     }
 
     @Override
-    public String visitPrim(mathGrammarParser.PrimContext ctx) {
+    public String visitPrim(mylangParser.PrimContext ctx) {
         String buff = visit(ctx.expr());
         return "(" + buff + ")";
     }
 
     @Override
-    public String visitModMulDiv(mathGrammarParser.ModMulDivContext ctx) {
+    public String visitModMulDiv(mylangParser.ModMulDivContext ctx) {
         String left = visit(ctx.expr(0));  // get value of left subexpression
         String right = visit(ctx.expr(1)); // get value of right subexpression
-        if (ctx.op.getType() == mathGrammarParser.MOD) return left + " %" + right;
-        if (ctx.op.getType() == mathGrammarParser.MUL) return left + "*" + right;
+        if (ctx.op.getType() == mylangParser.MOD) return left + " %" + right;
+        if (ctx.op.getType() == mylangParser.MUL) return left + "*" + right;
         return left + "/" + right; // must be DIV
     }
 
 
     @Override
-    public String visitFloatExpr(mathGrammarParser.FloatExprContext ctx) {
+    public String visitFloatExpr(mylangParser.FloatExprContext ctx) {
         String buff = this.visit(ctx.name_object_float());
         return buff + "f";
     }
 
     @Override
-    public String visitIntExrp(mathGrammarParser.IntExrpContext ctx) {
+    public String visitIntExrp(mylangParser.IntExrpContext ctx) {
         String buff = this.visit(ctx.name_object_int());
         return buff;
     }
 
     @Override
-    public String visitIdExpr(mathGrammarParser.IdExprContext ctx) {
+    public String visitIdExpr(mylangParser.IdExprContext ctx) {
         String name = ctx.ID().getText();
         return name;
     }
 
 
     @Override
-    public String visitTypeConversion(mathGrammarParser.TypeConversionContext ctx) {
+    public String visitTypeConversion(mylangParser.TypeConversionContext ctx) {
         String type = "";
         String buffer = visit(ctx.expr());
-        if (ctx.tp.getType() == mathGrammarParser.FLOAT_TYPE) type = "float";
+        if (ctx.tp.getType() == mylangParser.FLOAT_TYPE) type = "float";
         else type = "int";
         return "(" + type + ")" + buffer;
     }

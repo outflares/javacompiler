@@ -1,4 +1,4 @@
-grammar mathGrammar;
+grammar mylang;
 
 @header {
 package compiler.grammar;
@@ -40,10 +40,10 @@ PRITTY_PRINT : '<<';
 CONST : 'const';
 IF : 'if';
 ELSE : 'else';
-WHILE : 'while';
-FOREACH : 'forEach';
-FOR : 'for';
-CASE : 'case';
+//WHILE : 'while';
+//FOREACH : 'forEach';
+//FOR : 'for';
+//CASE : 'case';
 DEFAULT : 'default';
 
 MAIN : 'main';
@@ -67,8 +67,8 @@ instruction
  | expr
  | print
  | if_stat
- | while_stat
- | for_stat
+// | while_stat
+// | for_stat
  | function_call
  ;
 
@@ -133,7 +133,7 @@ condition_block
 stat_block
  : OBRACKET start CBRACKET
  ;
-
+/*
 while_stat
  : WHILE condition_block
  ;
@@ -142,10 +142,11 @@ for_stat
   : FOR OPAR condition_for CPAR stat_block
   ;
 
+
 condition_for
  : ID ASSIGN expr SEMICOLON condition SEMICOLON ID oper=(INCR|DECR)              #forCond
  ;
-
+*/
 condition
  : ID op=(EQ | NEQ | OANGLEBR| CANGLEBR | EQOANGLEBR | EQCANGLEBR) expr                  #equalityExpr
  | ID IS type                           #checkType

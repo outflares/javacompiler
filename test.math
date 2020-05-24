@@ -1,0 +1,39 @@
+fun integer fu (integer data) {
+    data=data*4
+    return data
+}
+
+fun float flo (float data) {
+    data = data+5
+    return data
+}
+
+main {
+  integer i = 5
+  float f = 19.01
+  const integer hundred = 100
+
+  integer b = 1
+
+  integer c = (integer) f
+
+  integer a = ((i*hundred + 123^2 - hundred%2)-1*b)
+  print a
+
+  a = fu(a)
+  print a
+
+  float l = f - 2.28
+
+  if (l<=f){
+  print l
+  }
+  else{
+  print f
+  }
+
+  f = flo(l)
+  print f
+
+}
+

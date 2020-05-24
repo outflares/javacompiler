@@ -1,4 +1,4 @@
-// Generated from D:/BSUIR/3 курс/6 семестр/яѕ»—/compiler examples/compiler-master/src/main/java/compiler/grammar\mathGrammar.g4 by ANTLR 4.8
+// Generated from D:/BSUIR/3 курс/6 семестр/яѕ»—/compiler examples/compiler-master/src/main/java/compiler/grammar\mylang.g4 by ANTLR 4.8
 
 package compiler.grammar;
 
@@ -8,575 +8,575 @@ import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
- * This class provides an empty implementation of {@link mathGrammarListener},
+ * This class provides an empty implementation of {@link mylangListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
-public class mathGrammarBaseListener implements mathGrammarListener {
+public class mylangBaseListener implements mylangListener {
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterParse(mathGrammarParser.ParseContext ctx) { }
+	@Override public void enterParse(mylangParser.ParseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitParse(mathGrammarParser.ParseContext ctx) { }
+	@Override public void exitParse(mylangParser.ParseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMain(mathGrammarParser.MainContext ctx) { }
+	@Override public void enterMain(mylangParser.MainContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMain(mathGrammarParser.MainContext ctx) { }
+	@Override public void exitMain(mylangParser.MainContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStart(mathGrammarParser.StartContext ctx) { }
+	@Override public void enterStart(mylangParser.StartContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStart(mathGrammarParser.StartContext ctx) { }
+	@Override public void exitStart(mylangParser.StartContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInstruction(mathGrammarParser.InstructionContext ctx) { }
+	@Override public void enterInstruction(mylangParser.InstructionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInstruction(mathGrammarParser.InstructionContext ctx) { }
+	@Override public void exitInstruction(mylangParser.InstructionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCall(mathGrammarParser.CallContext ctx) { }
+	@Override public void enterCall(mylangParser.CallContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCall(mathGrammarParser.CallContext ctx) { }
+	@Override public void exitCall(mylangParser.CallContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterModMulDiv(mathGrammarParser.ModMulDivContext ctx) { }
+	@Override public void enterModMulDiv(mylangParser.ModMulDivContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitModMulDiv(mathGrammarParser.ModMulDivContext ctx) { }
+	@Override public void exitModMulDiv(mylangParser.ModMulDivContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFloatExpr(mathGrammarParser.FloatExprContext ctx) { }
+	@Override public void enterFloatExpr(mylangParser.FloatExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFloatExpr(mathGrammarParser.FloatExprContext ctx) { }
+	@Override public void exitFloatExpr(mylangParser.FloatExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrim(mathGrammarParser.PrimContext ctx) { }
+	@Override public void enterPrim(mylangParser.PrimContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrim(mathGrammarParser.PrimContext ctx) { }
+	@Override public void exitPrim(mylangParser.PrimContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAddSub(mathGrammarParser.AddSubContext ctx) { }
+	@Override public void enterAddSub(mylangParser.AddSubContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAddSub(mathGrammarParser.AddSubContext ctx) { }
+	@Override public void exitAddSub(mylangParser.AddSubContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIntExrp(mathGrammarParser.IntExrpContext ctx) { }
+	@Override public void enterIntExrp(mylangParser.IntExrpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIntExrp(mathGrammarParser.IntExrpContext ctx) { }
+	@Override public void exitIntExrp(mylangParser.IntExrpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTypeConversion(mathGrammarParser.TypeConversionContext ctx) { }
+	@Override public void enterTypeConversion(mylangParser.TypeConversionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTypeConversion(mathGrammarParser.TypeConversionContext ctx) { }
+	@Override public void exitTypeConversion(mylangParser.TypeConversionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterUnary(mathGrammarParser.UnaryContext ctx) { }
+	@Override public void enterUnary(mylangParser.UnaryContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitUnary(mathGrammarParser.UnaryContext ctx) { }
+	@Override public void exitUnary(mylangParser.UnaryContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPowExpr(mathGrammarParser.PowExprContext ctx) { }
+	@Override public void enterPowExpr(mylangParser.PowExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPowExpr(mathGrammarParser.PowExprContext ctx) { }
+	@Override public void exitPowExpr(mylangParser.PowExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAssignExpr(mathGrammarParser.AssignExprContext ctx) { }
+	@Override public void enterAssignExpr(mylangParser.AssignExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAssignExpr(mathGrammarParser.AssignExprContext ctx) { }
+	@Override public void exitAssignExpr(mylangParser.AssignExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIdExpr(mathGrammarParser.IdExprContext ctx) { }
+	@Override public void enterIdExpr(mylangParser.IdExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIdExpr(mathGrammarParser.IdExprContext ctx) { }
+	@Override public void exitIdExpr(mylangParser.IdExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCreate(mathGrammarParser.CreateContext ctx) { }
+	@Override public void enterCreate(mylangParser.CreateContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCreate(mathGrammarParser.CreateContext ctx) { }
+	@Override public void exitCreate(mylangParser.CreateContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCreate_int(mathGrammarParser.Create_intContext ctx) { }
+	@Override public void enterCreate_int(mylangParser.Create_intContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCreate_int(mathGrammarParser.Create_intContext ctx) { }
+	@Override public void exitCreate_int(mylangParser.Create_intContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCreate_const_int(mathGrammarParser.Create_const_intContext ctx) { }
+	@Override public void enterCreate_const_int(mylangParser.Create_const_intContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCreate_const_int(mathGrammarParser.Create_const_intContext ctx) { }
+	@Override public void exitCreate_const_int(mylangParser.Create_const_intContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCreate_float(mathGrammarParser.Create_floatContext ctx) { }
+	@Override public void enterCreate_float(mylangParser.Create_floatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCreate_float(mathGrammarParser.Create_floatContext ctx) { }
+	@Override public void exitCreate_float(mylangParser.Create_floatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCreate_const_float(mathGrammarParser.Create_const_floatContext ctx) { }
+	@Override public void enterCreate_const_float(mylangParser.Create_const_floatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCreate_const_float(mathGrammarParser.Create_const_floatContext ctx) { }
+	@Override public void exitCreate_const_float(mylangParser.Create_const_floatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNameObjectInt(mathGrammarParser.NameObjectIntContext ctx) { }
+	@Override public void enterNameObjectInt(mylangParser.NameObjectIntContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNameObjectInt(mathGrammarParser.NameObjectIntContext ctx) { }
+	@Override public void exitNameObjectInt(mylangParser.NameObjectIntContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNameObjectFloat(mathGrammarParser.NameObjectFloatContext ctx) { }
+	@Override public void enterNameObjectFloat(mylangParser.NameObjectFloatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNameObjectFloat(mathGrammarParser.NameObjectFloatContext ctx) { }
+	@Override public void exitNameObjectFloat(mylangParser.NameObjectFloatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIf_stat(mathGrammarParser.If_statContext ctx) { }
+	@Override public void enterIf_stat(mylangParser.If_statContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIf_stat(mathGrammarParser.If_statContext ctx) { }
+	@Override public void exitIf_stat(mylangParser.If_statContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCondition_block(mathGrammarParser.Condition_blockContext ctx) { }
+	@Override public void enterCondition_block(mylangParser.Condition_blockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCondition_block(mathGrammarParser.Condition_blockContext ctx) { }
+	@Override public void exitCondition_block(mylangParser.Condition_blockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStat_block(mathGrammarParser.Stat_blockContext ctx) { }
+	@Override public void enterStat_block(mylangParser.Stat_blockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStat_block(mathGrammarParser.Stat_blockContext ctx) { }
+	@Override public void exitStat_block(mylangParser.Stat_blockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWhile_stat(mathGrammarParser.While_statContext ctx) { }
+	@Override public void enterWhile_stat(mylangParser.While_statContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitWhile_stat(mathGrammarParser.While_statContext ctx) { }
+	@Override public void exitWhile_stat(mylangParser.While_statContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFor_stat(mathGrammarParser.For_statContext ctx) { }
+	@Override public void enterFor_stat(mylangParser.For_statContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFor_stat(mathGrammarParser.For_statContext ctx) { }
+	@Override public void exitFor_stat(mylangParser.For_statContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterForCond(mathGrammarParser.ForCondContext ctx) { }
+	@Override public void enterForCond(mylangParser.ForCondContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitForCond(mathGrammarParser.ForCondContext ctx) { }
+	@Override public void exitForCond(mylangParser.ForCondContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterEqualityExpr(mathGrammarParser.EqualityExprContext ctx) { }
+	@Override public void enterEqualityExpr(mylangParser.EqualityExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitEqualityExpr(mathGrammarParser.EqualityExprContext ctx) { }
+	@Override public void exitEqualityExpr(mylangParser.EqualityExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCheckType(mathGrammarParser.CheckTypeContext ctx) { }
+	@Override public void enterCheckType(mylangParser.CheckTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCheckType(mathGrammarParser.CheckTypeContext ctx) { }
+	@Override public void exitCheckType(mylangParser.CheckTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrint(mathGrammarParser.PrintContext ctx) { }
+	@Override public void enterPrint(mylangParser.PrintContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrint(mathGrammarParser.PrintContext ctx) { }
+	@Override public void exitPrint(mylangParser.PrintContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrintId(mathGrammarParser.PrintIdContext ctx) { }
+	@Override public void enterPrintId(mylangParser.PrintIdContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrintId(mathGrammarParser.PrintIdContext ctx) { }
+	@Override public void exitPrintId(mylangParser.PrintIdContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrintInt(mathGrammarParser.PrintIntContext ctx) { }
+	@Override public void enterPrintInt(mylangParser.PrintIntContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrintInt(mathGrammarParser.PrintIntContext ctx) { }
+	@Override public void exitPrintInt(mylangParser.PrintIntContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrintFloat(mathGrammarParser.PrintFloatContext ctx) { }
+	@Override public void enterPrintFloat(mylangParser.PrintFloatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrintFloat(mathGrammarParser.PrintFloatContext ctx) { }
+	@Override public void exitPrintFloat(mylangParser.PrintFloatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPretty_print(mathGrammarParser.Pretty_printContext ctx) { }
+	@Override public void enterPretty_print(mylangParser.Pretty_printContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPretty_print(mathGrammarParser.Pretty_printContext ctx) { }
+	@Override public void exitPretty_print(mylangParser.Pretty_printContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunction_call(mathGrammarParser.Function_callContext ctx) { }
+	@Override public void enterFunction_call(mylangParser.Function_callContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunction_call(mathGrammarParser.Function_callContext ctx) { }
+	@Override public void exitFunction_call(mylangParser.Function_callContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterParam_call(mathGrammarParser.Param_callContext ctx) { }
+	@Override public void enterParam_call(mylangParser.Param_callContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitParam_call(mathGrammarParser.Param_callContext ctx) { }
+	@Override public void exitParam_call(mylangParser.Param_callContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterParamCallArg(mathGrammarParser.ParamCallArgContext ctx) { }
+	@Override public void enterParamCallArg(mylangParser.ParamCallArgContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitParamCallArg(mathGrammarParser.ParamCallArgContext ctx) { }
+	@Override public void exitParamCallArg(mylangParser.ParamCallArgContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterParamCallArgs(mathGrammarParser.ParamCallArgsContext ctx) { }
+	@Override public void enterParamCallArgs(mylangParser.ParamCallArgsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitParamCallArgs(mathGrammarParser.ParamCallArgsContext ctx) { }
+	@Override public void exitParamCallArgs(mylangParser.ParamCallArgsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVoidFunction(mathGrammarParser.VoidFunctionContext ctx) { }
+	@Override public void enterVoidFunction(mylangParser.VoidFunctionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVoidFunction(mathGrammarParser.VoidFunctionContext ctx) { }
+	@Override public void exitVoidFunction(mylangParser.VoidFunctionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterReturnFunction(mathGrammarParser.ReturnFunctionContext ctx) { }
+	@Override public void enterReturnFunction(mylangParser.ReturnFunctionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitReturnFunction(mathGrammarParser.ReturnFunctionContext ctx) { }
+	@Override public void exitReturnFunction(mylangParser.ReturnFunctionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStat_block_with_return(mathGrammarParser.Stat_block_with_returnContext ctx) { }
+	@Override public void enterStat_block_with_return(mylangParser.Stat_block_with_returnContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStat_block_with_return(mathGrammarParser.Stat_block_with_returnContext ctx) { }
+	@Override public void exitStat_block_with_return(mylangParser.Stat_block_with_returnContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterReturn_id(mathGrammarParser.Return_idContext ctx) { }
+	@Override public void enterReturn_id(mylangParser.Return_idContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitReturn_id(mathGrammarParser.Return_idContext ctx) { }
+	@Override public void exitReturn_id(mylangParser.Return_idContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterParam(mathGrammarParser.ParamContext ctx) { }
+	@Override public void enterParam(mylangParser.ParamContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitParam(mathGrammarParser.ParamContext ctx) { }
+	@Override public void exitParam(mylangParser.ParamContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterParamArg(mathGrammarParser.ParamArgContext ctx) { }
+	@Override public void enterParamArg(mylangParser.ParamArgContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitParamArg(mathGrammarParser.ParamArgContext ctx) { }
+	@Override public void exitParamArg(mylangParser.ParamArgContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterParamArgs(mathGrammarParser.ParamArgsContext ctx) { }
+	@Override public void enterParamArgs(mylangParser.ParamArgsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitParamArgs(mathGrammarParser.ParamArgsContext ctx) { }
+	@Override public void exitParamArgs(mylangParser.ParamArgsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterType(mathGrammarParser.TypeContext ctx) { }
+	@Override public void enterType(mylangParser.TypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitType(mathGrammarParser.TypeContext ctx) { }
+	@Override public void exitType(mylangParser.TypeContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

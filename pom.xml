@@ -11,7 +11,7 @@
         <dependency>
             <groupId>org.antlr</groupId>
             <artifactId>antlr4-runtime</artifactId>
-            <version>4.7</version>
+            <version>4.8</version>
         </dependency>
     </dependencies>
     <build>
@@ -39,7 +39,7 @@
             <plugin>
                 <groupId>org.antlr</groupId>
                 <artifactId>antlr4-maven-plugin</artifactId>
-                <version>4.7</version>
+                <version>4.8</version>
                 <executions>
                     <execution>
                         <goals>

@@ -1,8 +1,8 @@
 package compiler;
 
-import compiler.grammar.mathGrammarLexer;
-import compiler.grammar.mathGrammarParser;
-import compiler.grammar.mathGrammarVisitor;
+import compiler.grammar.mylangLexer;
+import compiler.grammar.mylangParser;
+import compiler.grammar.mylangVisitor;
 import compiler.visitor.setVisitor;
 import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -16,21 +16,10 @@ public class Main {
     public static void main(String[] args) throws Exception {
         String sourceFileName = getSourceFileName(args);
         compileSource(sourceFileName);
-        //clearJarTargetDirectory();
-
-    //    System.out.println("\n\nTEST:");
-   //     int j=2;
-     //   float b=0.2f;
-      //  j= (int) b;
-
-
-        System.out.println("\n\nCompile output:");
         compileResultCode();
-        System.out.println("\n\nPackage output:");
         packageToJarFile();
-        System.out.println("\n\nProgram output:");
+        System.out.println("\nProgram output:");
         executeResultCode();
-        System.out.println("\n\n");
     }
 
     private static void clearJarTargetDirectory() throws IOException {
@@ -50,13 +39,13 @@ public class Main {
     }
 
     private static void compileSource(String sourceFileName) {
-        mathGrammarLexer lexer = null;
+        mylangLexer lexer = null;
         try {
-            lexer = new mathGrammarLexer(new ANTLRFileStream(sourceFileName));
-            mathGrammarParser parser = new mathGrammarParser(new CommonTokenStream(lexer));
+            lexer = new mylangLexer(new ANTLRFileStream(sourceFileName));
+            mylangParser parser = new mylangParser(new CommonTokenStream(lexer));
             ParseTree tree = parser.parse();
-            mathGrammarVisitor mathGrammarVisitor = new setVisitor(sourceFileName);
-            String output = (String) mathGrammarVisitor.visit(tree);
+            mylangVisitor mylangVisitor = new setVisitor(sourceFileName);
+            String output = (String) mylangVisitor.visit(tree);
             PrintWriter printer = null;
             printer = new PrintWriter(compiledFileName);
             printer.print(output);
@@ -69,31 +58,11 @@ public class Main {
     }
 
     private static void compileResultCode() throws Exception {
-        Process p = Runtime.getRuntime().exec("javac -sourcepath ./compiled/src -d compiled/target compiled/src/result/Main.java");
-        String line;
-        BufferedReader errorStream = new BufferedReader(new InputStreamReader(p.getErrorStream()));
-        while ((line = errorStream.readLine()) != null) {
-            System.out.println(line);
-        }
-        BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
-        while ((line = in.readLine()) != null) {
-            System.out.println(line);
-        }
-        in.close();
+        Runtime.getRuntime().exec("javac -sourcepath ./compiled/src -d compiled/target compiled/src/result/Main.java");
     }
 
     private static void packageToJarFile() throws IOException {
-        Process p = Runtime.getRuntime().exec("jar cmvf ./compiled/META-INF/MANIFEST.mf ./compiled/target.jar -C ./compiled/target/ .");
-        String line;
-        BufferedReader errorStream = new BufferedReader(new InputStreamReader(p.getErrorStream()));
-        while ((line = errorStream.readLine()) != null) {
-          System.out.println(line);
-        }
-        BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
-        while ((line = in.readLine()) != null) {
-            System.out.println(line);
-        }
-        in.close();
+        Runtime.getRuntime().exec("jar cmvf ./compiled/META-INF/MANIFEST.mf ./compiled/target.jar -C ./compiled/target/ .");
     }
 
     private static void executeResultCode() throws Exception {

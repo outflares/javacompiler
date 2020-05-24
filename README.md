@@ -6,7 +6,6 @@
 
 Получившийся код будет выполнен.
 
-# Демонстрация
 # test.math:
 ```
 fun integer fu (integer data) {
